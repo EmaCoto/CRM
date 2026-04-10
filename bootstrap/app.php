@@ -24,6 +24,7 @@ return Application::configure(basePath: dirname(__DIR__))
         $middleware->validateCsrfTokens(except: [
             'admin/mail/inbound-parse',
             'admin/web-forms/forms/*',
+            'zadarma/webhooks/call-events',
         ]);
 
         $middleware->api(prepend: [

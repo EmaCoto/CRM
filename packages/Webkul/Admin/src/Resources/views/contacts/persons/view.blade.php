@@ -1,4 +1,8 @@
 <x-admin::layouts>
+    @php
+        $primaryContactNumber = collect($person->contact_numbers ?? [])->first();
+    @endphp
+
     <x-slot:title>
         @lang('admin::app.contacts.persons.view.title', ['name' => strip_tags($person->name)])
     </x-slot>
@@ -72,6 +76,17 @@
                     <x-admin::activities.actions.activity
                         :entity="$person"
                         entity-control-name="person_id"
+                    />
+
+                    <x-admin::zadarma.call-button
+                        :endpoint="route('admin.integrations.zadarma.calls.store')"
+                        entity-type="persons"
+                        :entity-id="$person->id"
+                        :phone-number="$primaryContactNumber['value'] ?? null"
+                        :contact-name="$person->name"
+                        :participant-person-id="$person->id"
+                        :label="trans('admin::app.integrations.zadarma.call.button')"
+                        button-class="flex h-[74px] w-[84px] flex-col items-center justify-center gap-1 rounded-lg border border-transparent bg-cyan-200 font-medium text-cyan-800 transition-all hover:border-cyan-400"
                     />
 
                     {!! view_render_event('admin.contact.persons.view.actions.after', ['person' => $person]) !!}

@@ -79,17 +79,28 @@
                         {!! view_render_event('admin.leads.view.person.contact_numbers.before', ['lead' => $lead]) !!}
                     
                         @foreach ($lead->person->contact_numbers as $contactNumber)
-                            <div class="flex gap-1">
+                            <div class="flex flex-wrap items-center gap-2">
                                 <a  
                                     class="text-brandColor"
                                     href="callto:{{ $contactNumber['value'] }}"
                                 >
                                     {{ $contactNumber['value'] }}
                                 </a>
-        
+
                                 <span class="text-gray-500 dark:text-gray-300">
                                     ({{ $contactNumber['label'] }})
                                 </span>
+
+                                <x-admin::zadarma.call-button
+                                    :endpoint="route('admin.integrations.zadarma.calls.store')"
+                                    entity-type="leads"
+                                    :entity-id="$lead->id"
+                                    :phone-number="$contactNumber['value']"
+                                    :contact-name="$lead->person->name"
+                                    :participant-person-id="$lead->person->id"
+                                    :label="trans('admin::app.integrations.zadarma.call.button')"
+                                    button-class="inline-flex items-center gap-1 rounded-md border border-cyan-300 bg-cyan-50 px-2 py-1 text-xs font-medium text-cyan-800 transition-all hover:border-cyan-400 hover:bg-cyan-100"
+                                />
                             </div>
                         @endforeach
         

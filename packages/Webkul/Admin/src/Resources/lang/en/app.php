@@ -2170,6 +2170,27 @@ return [
                         'title' => 'Menu Item Color Configurations',
                     ],
                 ],
+
+                'telephony' => [
+                    'title' => 'Telephony',
+                    'info' => 'Prepare calling integrations for your sales team.',
+
+                    'zadarma' => [
+                        'title' => 'Zadarma',
+                        'info' => 'Save the future Zadarma credentials here. Only configured administrators should manage this section.',
+                        'enabled' => 'Enable Zadarma',
+                        'api-key' => 'API Key',
+                        'source' => 'Callback Source',
+                        'source-info' => 'Phone, SIP, PBX extension, or PBX scenario number used as the origin in Zadarma callback requests.',
+                        'api-secret' => 'API Secret',
+                        'sip' => 'PBX Extension / SIP',
+                        'sip-info' => 'Optional PBX extension or SIP used to place the call and apply its caller ID / call settings.',
+                        'predicted' => 'Use Predicted Callback',
+                        'auto-sync-webhook' => 'Auto Sync Call Webhook',
+                        'webhook-url' => 'Public Webhook URL',
+                        'webhook-url-info' => 'Optional public URL for Zadarma call events. Leave empty to use APP_URL when it is publicly reachable.',
+                    ],
+                ],
             ],
 
             'email' => [
@@ -2218,6 +2239,30 @@ return [
                         'title' => 'Models',
                     ],
                 ],
+            ],
+        ],
+    ],
+
+    'integrations' => [
+        'zadarma' => [
+            'call' => [
+                'button' => 'Call',
+                'confirm-title' => 'Confirm call',
+                'confirm-message' => 'Do you want to call',
+                'confirm-message-phone' => 'Do you want to call the number',
+                'success' => 'The Zadarma call request was registered successfully.',
+                'failed' => 'The Zadarma call could not be started.',
+                'not-configured' => 'Zadarma is not configured yet. Ask an administrator to complete Configuration > Telephony > Zadarma first.',
+                'activity-title' => 'Zadarma call: :name',
+                'activity-comment' => 'Call request created from CRM to :phone for Zadarma.',
+                'webhook-sync-warning' => 'The call was started, but the Zadarma webhook could not be synchronized automatically.',
+                'activity-provider' => 'Provider',
+                'activity-status' => 'Status',
+                'activity-duration' => 'Duration',
+                'activity-source' => 'Source',
+                'status-requested' => 'Requested',
+                'status-answered' => 'Answered',
+                'status-finished' => 'Finished',
             ],
         ],
     ],

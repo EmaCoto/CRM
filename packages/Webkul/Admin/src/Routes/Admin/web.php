@@ -46,6 +46,11 @@ require 'quote-routes.php';
 require 'configuration-routes.php';
 
 /**
+ * Integration routes.
+ */
+require 'integration-routes.php';
+
+/**
  * Rest routes.
  */
 require 'rest-routes.php';

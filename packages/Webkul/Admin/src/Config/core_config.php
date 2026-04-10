@@ -180,11 +180,70 @@ return [
             ],
         ],
     ], [
+        'key' => 'general.telephony',
+        'name' => 'admin::app.configuration.index.general.telephony.title',
+        'info' => 'admin::app.configuration.index.general.telephony.info',
+        'icon' => 'icon-setting',
+        'sort' => 4,
+    ], [
+        'key' => 'general.telephony.zadarma',
+        'name' => 'admin::app.configuration.index.general.telephony.zadarma.title',
+        'info' => 'admin::app.configuration.index.general.telephony.zadarma.info',
+        'sort' => 1,
+        'fields' => [
+            [
+                'name' => 'enabled',
+                'title' => 'admin::app.configuration.index.general.telephony.zadarma.enabled',
+                'type' => 'boolean',
+            ], [
+                'name' => 'api_key',
+                'title' => 'admin::app.configuration.index.general.telephony.zadarma.api-key',
+                'type' => 'password',
+                'depends' => 'enabled:1',
+                'validation' => 'required_if:enabled,1',
+            ], [
+                'name' => 'source',
+                'title' => 'admin::app.configuration.index.general.telephony.zadarma.source',
+                'type' => 'text',
+                'depends' => 'enabled:1',
+                'validation' => 'required_if:enabled,1',
+                'info' => 'admin::app.configuration.index.general.telephony.zadarma.source-info',
+            ], [
+                'name' => 'api_secret',
+                'title' => 'admin::app.configuration.index.general.telephony.zadarma.api-secret',
+                'type' => 'password',
+                'depends' => 'enabled:1',
+                'validation' => 'required_if:enabled,1',
+            ], [
+                'name' => 'sip',
+                'title' => 'admin::app.configuration.index.general.telephony.zadarma.sip',
+                'type' => 'text',
+                'depends' => 'enabled:1',
+                'info' => 'admin::app.configuration.index.general.telephony.zadarma.sip-info',
+            ], [
+                'name' => 'predicted',
+                'title' => 'admin::app.configuration.index.general.telephony.zadarma.predicted',
+                'type' => 'boolean',
+                'depends' => 'enabled:1',
+            ], [
+                'name' => 'auto_sync_webhook',
+                'title' => 'admin::app.configuration.index.general.telephony.zadarma.auto-sync-webhook',
+                'type' => 'boolean',
+                'depends' => 'enabled:1',
+            ], [
+                'name' => 'webhook_url',
+                'title' => 'admin::app.configuration.index.general.telephony.zadarma.webhook-url',
+                'type' => 'text',
+                'depends' => 'enabled:1',
+                'info' => 'admin::app.configuration.index.general.telephony.zadarma.webhook-url-info',
+            ],
+        ],
+    ], [
         'key' => 'general.magic_ai',
         'name' => 'admin::app.configuration.index.magic-ai.title',
         'info' => 'admin::app.configuration.index.magic-ai.info',
         'icon' => 'icon-setting',
-        'sort' => 3,
+        'sort' => 5,
     ], [
         'key' => 'general.magic_ai.settings',
         'name' => 'admin::app.configuration.index.magic-ai.settings.title',

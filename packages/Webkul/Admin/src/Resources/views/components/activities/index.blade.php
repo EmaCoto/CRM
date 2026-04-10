@@ -179,6 +179,41 @@
 
                                                     @{{ activity.location }}
                                                 </p>
+
+                                                <template v-if="activity.type == 'call' && activity.additional?.provider == 'zadarma'">
+                                                    <p class="dark:text-white">
+                                                        @lang('admin::app.integrations.zadarma.call.activity-provider'):
+
+                                                        @{{ activity.additional.provider }}
+                                                    </p>
+
+                                                    <p
+                                                        v-if="activity.additional.status_label"
+                                                        class="dark:text-white"
+                                                    >
+                                                        @lang('admin::app.integrations.zadarma.call.activity-status'):
+
+                                                        @{{ activity.additional.status_label }}
+                                                    </p>
+
+                                                    <p
+                                                        v-if="activity.additional.duration"
+                                                        class="dark:text-white"
+                                                    >
+                                                        @lang('admin::app.integrations.zadarma.call.activity-duration'):
+
+                                                        @{{ activity.additional.duration }} sec
+                                                    </p>
+
+                                                    <p
+                                                        v-if="activity.additional.source"
+                                                        class="dark:text-white"
+                                                    >
+                                                        @lang('admin::app.integrations.zadarma.call.activity-source'):
+
+                                                        @{{ activity.additional.source }}
+                                                    </p>
+                                                </template>
                                             </template>
                                         </div>
 
